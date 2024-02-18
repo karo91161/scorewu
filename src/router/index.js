@@ -8,8 +8,13 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/',
+    redirect: '/login' // Redirect to login page by default
+  },
+  {
+    path: '/home',
     name: 'Home',
-    component: Home
+    component: Home,
+    meta: { requiresAuth: true } // Add meta field for authentication
   },
   {
     path: '/login',

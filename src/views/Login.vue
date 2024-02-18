@@ -34,7 +34,7 @@ export default {
         });
         // Handle successful login, e.g., store token in localStorage and redirect
         console.log('Logged in successfully:', response.data);
-        this.$router.push('/');
+        this.$router.push('/home');
       } catch (error) {
         // Handle login error, e.g., show error message
         console.error('Login error:', error.response.data.error);
