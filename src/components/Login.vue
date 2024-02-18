@@ -1,43 +1,36 @@
 <template>
-  <v-container>
-    <v-layout align-center justify-center>
-      <v-flex xs12 sm8 md4>
-        <v-card>
-          <v-card-title>Login</v-card-title>
-          <v-card-text>
-            <v-form @submit.prevent="login">
-              <v-text-field v-model="username" label="Username"></v-text-field>
-              <v-text-field v-model="password" label="Password" type="password"></v-text-field>
-              <v-btn color="primary" type="submit">Login</v-btn>
-            </v-form>
-          </v-card-text>
-        </v-card>
-      </v-flex>
-    </v-layout>
-  </v-container>
+  <div>
+    <h2>Login</h2>
+    <form @submit.prevent="login">
+      <input type="text" v-model="username" placeholder="Username">
+      <input type="password" v-model="password" placeholder="Password">
+      <button type="submit">Login</button>
+    </form>
+  </div>
 </template>
 
 <script>
+import { login } from '@/services/authService';
+
 export default {
   data() {
     return {
       username: '',
       password: ''
-    }
+    };
   },
   methods: {
     async login() {
       try {
-        const response = await this.$http.post('/api/login', {
-          username: this.username,
-          password: this.password
-        });
-        // Handle successful login, e.g., store token in localStorage and redirect
-        console.log('Logged in successfully:', response.data);
-        this.$router.push('/');
+        const response = await login(this.username, this.password);
+        console.log('Login response:', response);
+        // Check if user is authenticated before redirecting
+        if (/* Add your authentication check here */) {
+          this.$router.push('/home'); // Redirect to home page after successful login
+        }
       } catch (error) {
-        // Handle login error, e.g., show error message
-        console.error('Login error:', error.response.data.error);
+        console.error('Login failed:', error);
+        // Handle login failure (e.g., display error message)
       }
     }
   }
