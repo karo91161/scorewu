@@ -29,6 +29,7 @@ export default {
     async fetchFixtures() {
       try {
         this.fixtures = await fetchFixtures();
+        console.log('this.fixtures', this.fixtures)
       } catch (error) {
         console.error('Error fetching fixtures:', error);
       }
