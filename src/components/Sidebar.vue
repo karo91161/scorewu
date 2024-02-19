@@ -1,7 +1,7 @@
 <template>
-  <v-navigation-drawer app>
+  <v-navigation-drawer app :permanent="true">
     <v-list dense>
-      <v-list-item v-for="(item, index) in items" :key="index" :to="item.to">
+      <v-list-item v-for="(item, index) in items" :key="index" :to="item.to" link>
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
         </v-list-item-icon>
@@ -18,8 +18,8 @@ export default {
   data() {
     return {
       items: [
-        { title: 'Home', icon: 'mdi-home', to: '/' },
-        // Add more sidebar items as needed
+        { title: 'Home', icon: 'mdi-home', to: '/home' },
+        { title: 'Leagues', icon: 'mdi-trophy', to: '/leaguaes' },
       ]
     }
   }
