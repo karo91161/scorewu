@@ -25,9 +25,7 @@ export default {
         const response = await login(this.username, this.password);
         console.log('Login response:', response);
         // Check if user is authenticated before redirecting
-        if (/* Add your authentication check here */) {
           this.$router.push('/home'); // Redirect to home page after successful login
-        }
       } catch (error) {
         console.error('Login failed:', error);
         // Handle login failure (e.g., display error message)

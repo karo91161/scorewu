@@ -8,7 +8,7 @@ import vuetify from './plugins/vuetify'
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
-axios.defaults.baseURL = 'http://localhost:3000' // Adjust this according to your backend URL
+axios.defaults.baseURL = 'http://localhost:3000'
 
 new Vue({
   router,
