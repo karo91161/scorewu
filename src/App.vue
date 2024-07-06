@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="#7eaf34" dark class="custom-app-bar">
+    <v-app-bar app color="#7eaf34" dark>
       <div class="ml-auto">
         <LanguageSelector />
       </div>
