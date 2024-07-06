@@ -1,13 +1,11 @@
 <template>
   <v-container fluid>
-    <v-layout row>
-      <v-flex xs4>
-        <Sidebar></Sidebar>
-      </v-flex>
-      <v-flex xs8>
-          <div>
-            <h1>Football Leagues</h1>
-            <Leaguaes />
+    <v-layout row justify-center>
+      <v-flex xs12 md8>
+        <Sidebar />
+        <div class="main-content">
+          <h1>Football Leagues</h1>
+          <Leaguaes />
         </div>
       </v-flex>
     </v-layout>
@@ -25,3 +23,10 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+.main-content {
+  padding: 20px;
+  text-align: center;
+}
+</style>

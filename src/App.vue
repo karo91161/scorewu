@@ -1,44 +1,25 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+    <v-app-bar app color="#7eaf34" dark class="custom-app-bar">
+      <div class="ml-auto">
+        <LanguageSelector />
       </div>
     </v-app-bar>
 
     <v-main>
-      <router-view/>
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import LanguageSelector from '@/components/LanguageSelector.vue';
 
 export default {
   name: 'App',
 
-  data: () => ({
-    //
-  }),
+  components: {
+    LanguageSelector,
+  },
 };
 </script>

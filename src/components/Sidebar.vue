@@ -1,6 +1,16 @@
 <template>
   <v-navigation-drawer app :permanent="true">
     <v-list dense>
+      <div class="d-flex align-center logo">
+        <v-img
+          alt="ScoreWU Logo"
+          class="shrink mr-2"
+          contain
+          src="@/assets/scorewu-logo.png"
+          transition="scale-transition"
+          width="150"
+        />
+      </div>
       <v-list-item v-for="(item, index) in items" :key="index" :to="item.to" link>
         <v-list-item-icon>
           <v-icon>{{ item.icon }}</v-icon>
@@ -25,3 +35,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.logo {
+  width: 200px;
+  margin-left: 50px;
+}
+</style>
