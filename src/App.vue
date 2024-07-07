@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <v-app-bar app color="#7eaf34" dark>
+    <v-app-bar app class="app-bar" dark>
       <div class="ml-auto">
         <LanguageSelector />
       </div>
@@ -23,3 +23,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+.app-bar {
+  background-color: var(--app-color) !important;
+}
+</style>

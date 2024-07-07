@@ -1,10 +1,24 @@
 {
-    "hello": "Hello",
-    "football_leagues": "Football Leagues",
+  "main": {
+    "main_page": "Main Page"
+  },
+  "live": {
+    "today_matches": "Today's matches",
     "home": "Home",
     "away": "Away",
     "date": "Date",
-    "league_fixtures": "League Fixtures",
+    "live_fixtures": "Live Fixtures",
     "venue": "Venue"
+  },
+  "menu": {
+    "home": "Home",
+    "live": "Live"
+  },
+  "login": {
+    "title": "Login",
+    "username": "Username",
+    "password": "Password",
+    "button": "Login"
   }
+}
   

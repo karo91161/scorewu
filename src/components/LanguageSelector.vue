@@ -9,6 +9,7 @@
 export default {
   methods: {
     changeLanguage(lang) {
+      console.log('belep')
       this.$i18n.locale = lang;
     }
   }
