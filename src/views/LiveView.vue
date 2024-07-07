@@ -4,8 +4,8 @@
       <v-flex xs12 md8>
         <Sidebar />
         <div class="main-content">
-          <h1>Football Leagues</h1>
-          <Leaguaes />
+          <h1>{{ $t('live.today_matches') }}</h1>
+          <Live />
         </div>
       </v-flex>
     </v-layout>
@@ -13,12 +13,12 @@
 </template>
 
 <script>
-import Leaguaes from '../components/LeaguaesMenu.vue'
+import Live from '../components/LiveMenu.vue'
 import Sidebar from '@/components/Sidebar.vue';
 
 export default {
   components: {
-    Leaguaes,
+    Live,
     Sidebar
   }
 };

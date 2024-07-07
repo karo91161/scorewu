@@ -5,7 +5,7 @@
         <Sidebar></Sidebar>
       </v-flex>
       <v-flex xs8>
-        <h1>Main Page</h1>
+        <h1>{{ $t('main.main_page') }}</h1>
       </v-flex>
     </v-layout>
   </v-container>

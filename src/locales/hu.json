@@ -1,9 +1,23 @@
 {
-    "hello": "Helló",
-    "football_leagues": "Futball Ligák",
+  "main": {
+    "main_page": "Főoldal"
+  },
+  "live": {
+    "today_matches": "Mai Meccsek",
     "home": "Hazai",
     "away": "Vendég",
     "date": "Dátum",
-    "league_fixtures": "Liga Meccsek",
+    "live_fixtures": "Élő Eredmények",
     "venue": "Helyszín"
+  },
+  "menu": {
+    "home": "Főoldal",
+    "live": "Élő"
+  },
+  "login": {
+    "title": "Bejelentkezés",
+    "username": "Felhasználónév",
+    "password": "Jelszó",
+    "button": "Bejelentkezés"
   }
+}

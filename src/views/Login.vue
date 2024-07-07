@@ -3,12 +3,12 @@
     <v-layout align-center justify-center>
       <v-flex xs12 sm8 md4>
         <v-card>
-          <v-card-title class="headline">Login</v-card-title>
+          <v-card-title class="headline">{{ $t('login.title') }}</v-card-title>
           <v-card-text>
             <v-form @submit.prevent="login">
-              <v-text-field v-model="username" label="Username" outlined></v-text-field>
-              <v-text-field v-model="password" label="Password" type="password" outlined></v-text-field>
-              <v-btn color="primary" type="submit">Login</v-btn>
+              <v-text-field v-model="username" :label="$t('login.username')" outlined></v-text-field>
+              <v-text-field v-model="password" :label="$t('login.password')" type="password" outlined></v-text-field>
+              <v-btn class="login-button" type="submit" dark>{{ $t('login.button') }}</v-btn>
             </v-form>
           </v-card-text>
         </v-card>
@@ -44,7 +44,10 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.login-button {
+  background-color: var(--app-color) !important;
+}
 .card {
   max-width: 400px;
   margin: auto;
