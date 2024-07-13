@@ -3,16 +3,19 @@
     "main_page": "Főoldal"
   },
   "live": {
-    "today_matches": "Mai Meccsek",
+    "today_matches": "Mai Mérkőzések",
+    "live_matches": "Élő Mérkőzések",
     "home": "Hazai",
     "away": "Vendég",
     "date": "Dátum",
-    "live_fixtures": "Élő Eredmények",
+    "fixtures": "Eredmények",
     "venue": "Helyszín"
   },
   "menu": {
     "home": "Főoldal",
-    "live": "Élő"
+    "live": "Élő",
+    "today": "Mai",
+    "prediction": "Mai elemzés"
   },
   "login": {
     "title": "Bejelentkezés",

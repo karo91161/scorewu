@@ -3,14 +3,14 @@
     <v-row justify="center">
       <v-col cols="12" md="10" lg="8">
         <v-card class="mx-auto mt-5" outlined>
-          <v-card-title class="headline">Live Matches</v-card-title>
+          <v-card-title class="headline">Today's Matches</v-card-title>
+          <v-card-text>
             <v-pagination
               v-if="totalPages > 1"
               v-model="page"
               :length="totalPages"
               @input="fetchData"
             ></v-pagination>
-          <v-card-text>
             <v-list dense>
               <v-list-item-group>
                 <v-list-item
@@ -66,7 +66,7 @@
 </template>
 
 <script>
-import { fetchFixtures } from '@/services/leagueService';
+import { fetchTodayFixtures } from '@/services/leagueService';
 
 export default {
   data() {
@@ -87,7 +87,7 @@ export default {
   },
   methods: {
     async fetchData() {
-      const data = await fetchFixtures(this.page, this.limit);
+      const data = await fetchTodayFixtures(this.page, this.limit);
       this.fixtures = data.response;
       this.totalCount = data.totalCount;
     }
