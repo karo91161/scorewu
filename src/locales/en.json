@@ -3,16 +3,19 @@
     "main_page": "Main Page"
   },
   "live": {
-    "today_matches": "Today's matches",
+    "today_matches": "Upcoming Today's matches",
+    "live_matches": "Live matches",
     "home": "Home",
     "away": "Away",
     "date": "Date",
-    "live_fixtures": "Live Fixtures",
+    "fixtures": "Fixtures",
     "venue": "Venue"
   },
   "menu": {
     "home": "Home",
-    "live": "Live"
+    "live": "Live",
+    "today": "Today",
+    "prediction": "Today's Top Prediction"
   },
   "login": {
     "title": "Login",
