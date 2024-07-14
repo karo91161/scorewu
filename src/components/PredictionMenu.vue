@@ -18,12 +18,10 @@
                   <strong>Confidence: {{ prediction.confidence }}%</strong>
                 </template>
               </v-progress-linear>
-
               <p><strong>Under/Over:</strong> {{ prediction.under_over }}</p>
-
               <v-row>
-                <v-col cols="6">
-                  <v-card class="pa-3">
+                <v-col cols="6" class="d-flex justify-center">
+                  <v-card class="pa-3 d-flex justify-center align-center">
                     <v-progress-circular
                       :value="Math.abs(prediction.goals.home)"
                       color="blue"
@@ -35,8 +33,8 @@
                     </v-progress-circular>
                   </v-card>
                 </v-col>
-                <v-col cols="6">
-                  <v-card class="pa-3">
+                <v-col cols="6" class="d-flex justify-center">
+                  <v-card class="pa-3 d-flex justify-center align-center">
                     <v-progress-circular
                       :value="Math.abs(prediction.goals.away)"
                       color="red"
@@ -49,8 +47,13 @@
                   </v-card>
                 </v-col>
               </v-row>
-
               <p><strong>Advice:</strong> {{ prediction.advice }}</p>
+              <v-divider class="my-4"></v-divider>
+              <v-row>
+                <v-col cols="12">
+                  <apexchart type="pie" :options="chartOptions" :series="chartSeries"></apexchart>
+                </v-col>
+              </v-row>
             </div>
             <div v-else>
               <p>No prediction available for today's match.</p>
@@ -64,11 +67,34 @@
 
 <script>
 import { fetchPredictionForToday } from '@/services/predictionService';
+import VueApexCharts from 'vue-apexcharts';
 
 export default {
+  components: {
+    apexchart: VueApexCharts,
+  },
   data() {
     return {
-      prediction: null
+      prediction: null,
+      chartOptions: {
+        chart: {
+          width: '100%',
+          type: 'pie',
+        },
+        labels: ['Home Goals', 'Away Goals'],
+        responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+            legend: {
+              position: 'bottom'
+            }
+          }
+        }]
+      },
+      chartSeries: [],
     };
   },
   async created() {
@@ -78,6 +104,15 @@ export default {
     async fetchData() {
       const data = await fetchPredictionForToday();
       this.prediction = data;
+      this.updateChart();
+    },
+    updateChart() {
+      if (this.prediction) {
+        this.chartSeries = [Math.abs(this.prediction.goals.home), Math.abs(this.prediction.goals.away)];
+      }
+    },
+    async refreshData() {
+      await this.fetchData();
     }
   }
 };
@@ -89,5 +124,14 @@ export default {
   justify-content: center;
   align-items: center;
   margin: 20px 0;
+}
+.d-flex {
+  display: flex;
+}
+.justify-center {
+  justify-content: center;
+}
+.align-center {
+  align-items: center;
 }
 </style>

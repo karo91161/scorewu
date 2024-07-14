@@ -17,10 +17,11 @@
     "today": "Mai",
     "prediction": "Mai elemzés"
   },
-  "login": {
+  "auth": {
     "title": "Bejelentkezés",
-    "username": "Felhasználónév",
+    "email": "Email",
     "password": "Jelszó",
-    "button": "Bejelentkezés"
+    "button": "Bejelentkezés",
+    "register": "Regisztráció"
   }
 }
