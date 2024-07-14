@@ -17,11 +17,12 @@
     "today": "Today",
     "prediction": "Today's Top Prediction"
   },
-  "login": {
+  "auth": {
     "title": "Login",
-    "username": "Username",
+    "email": "Email",
     "password": "Password",
-    "button": "Login"
+    "button": "Login",
+    "register": "Registration"
   }
 }
   
