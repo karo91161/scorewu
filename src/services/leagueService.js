@@ -6,7 +6,7 @@ const API_URL = 'http://localhost:3000';
 
 export async function fetchFixtures(page = 1, limit = 50) {
   try {
-    const response = await axios.get(`${API_URL}/api/fixtures-live`, {
+    const response = await axios.get(`${API_URL}/fixtures-live`, {
       params: { page, limit }
     });
     return response.data;
@@ -18,7 +18,7 @@ export async function fetchFixtures(page = 1, limit = 50) {
 
 export async function fetchTodayFixtures(page = 1, limit = 50) {
   try {
-    const response = await axios.get(`${API_URL}/api/fixtures-today`, {
+    const response = await axios.get(`${API_URL}/fixtures-today`, {
       params: { page, limit }
     });
     return response.data;

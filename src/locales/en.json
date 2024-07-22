@@ -15,7 +15,8 @@
     "home": "Home",
     "live": "Live",
     "today": "Today",
-    "prediction": "Today's Top Prediction"
+    "prediction": "Today's Top Prediction",
+    "logout": "Logout"
   },
   "auth": {
     "title": "Login",

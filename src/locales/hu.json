@@ -15,7 +15,8 @@
     "home": "Főoldal",
     "live": "Élő",
     "today": "Mai",
-    "prediction": "Mai elemzés"
+    "prediction": "Mai elemzés",
+    "logout": "Kijelentkezés"
   },
   "auth": {
     "title": "Bejelentkezés",
