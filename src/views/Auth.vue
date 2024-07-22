@@ -37,6 +37,9 @@
 </template>
 
 <script>
+import { login as authLogin, register as authRegister } from '../services/authService';
+import { setUser, } from '../utils/userStorage';
+
 export default {
   data() {
     return {
@@ -52,32 +55,25 @@ export default {
   methods: {
     async login() {
       try {
-        const response = await this.$http.post('/api/login', {
-          email: this.email,
-          password: this.password
-        });
-        // Handle successful login, e.g., store token in localStorage and redirect
-        console.log('Logged in successfully:', response.data);
-        this.$router.push('/home');
+        const response = await authLogin(this.email, this.password);
+        if (response.message === 'Login successful') {
+          setUser(response.user);
+          this.$router.push('/home');
+        }
       } catch (error) {
-        // Handle login error, e.g., show error message
-        console.error('Login error:', error.response.data.error);
-        this.error = error.response.data.error || 'An error occurred during login';
+        this.error = error.response?.data?.error || 'An error occurred during login';
       }
     },
     async register() {
       try {
-        const response = await this.$http.post('/api/register', {
-          email: this.registerEmail,
-          password: this.registerPassword
-        });
-        // Handle successful registration, e.g., show success message or redirect
-        console.log('Registered successfully:', response.data);
-        this.showRegisterDialog = false;
+        const response = await authRegister(this.registerEmail, this.registerPassword);
+        if (response.message === 'User registered successfully') {
+          setUser(response.user);
+          this.showRegisterDialog = false;
+          this.$router.push('/home');
+        }
       } catch (error) {
-        // Handle registration error, e.g., show error message
-        console.error('Registration error:', error.response.data.error);
-        this.registerError = error.response.data.error || 'An error occurred during registration';
+        this.registerError = error.response?.data?.error || 'An error occurred during registration';
       }
     }
   }
