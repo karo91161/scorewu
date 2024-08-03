@@ -31,6 +31,7 @@ export default {
       items: [
         { title: this.$t('menu.home'), icon: 'mdi-home', to: '/home' },
         { title: this.$t('menu.live'), icon: 'mdi-trophy', to: '/live' },
+        { title: this.$t('menu.teams'), icon: 'mdi-soccer', to: '/teams' },
         { title: this.$t('menu.today'), icon: 'mdi-calendar-today', to: '/today' },
         { title: this.$t('menu.prediction'), icon: 'mdi-chart-line', to: '/prediction' },
         { title: this.$t('menu.logout'), icon: 'mdi-logout', to: '/logout' },
