@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
 import Auth from '../views/Auth.vue';
 import Live from '../views/LiveView.vue';
+import Teams from '../views/TeamsView.vue';
 import Today from '../views/TodayView.vue';
 import Prediction from '../views/PredictionView.vue';
 import { logout } from '../services/authService';
@@ -26,6 +27,12 @@ const routes = [
     path: '/live',
     name: 'Live',
     component: Live,
+    meta: { requiresAuth: true }
+  },
+  {
+    path: '/teams',
+    name: 'Teams',
+    component: Teams,
     meta: { requiresAuth: true }
   },
   {

@@ -27,3 +27,15 @@ export async function fetchTodayFixtures(page = 1, limit = 50) {
     throw error;
   }
 }
+
+export async function fetchTeams(league, season) {
+  try {
+    const response = await axios.get(`${API_URL}/teams`, {
+      params: { league, season }
+    });
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching teams:', error);
+    throw error;
+  }
+}

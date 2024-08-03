@@ -8,6 +8,5 @@ export const setUser = (user) => {
   };
   
   export const removeUser = () => {
-    console.log('remooove')
     localStorage.removeItem('user');
   };
