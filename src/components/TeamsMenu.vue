@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import { fetchTeams } from '@/services/leagueService';
+import { fetchTeams, fetchFavoriteTeams, addFavoriteTeam, removeFavoriteTeam } from '@/services/leagueService';
 
 export default {
   data() {
@@ -41,6 +41,7 @@ export default {
   },
   mounted() {
     this.fetchTeams();
+    this.loadFavorites();
   },
   methods: {
     async fetchTeams() {
@@ -57,6 +58,14 @@ export default {
         }
       }
     },
+    async loadFavorites() {
+      try {
+        const response = await fetchFavoriteTeams();
+        this.favoriteTeams = response;
+      } catch (error) {
+        console.error('Failed to load favorite teams:', error);
+      }
+    },
     toggleLeague(index) {
       const pos = this.openLeagues.indexOf(index);
       if (pos > -1) {
@@ -68,12 +77,25 @@ export default {
     isOpen(index) {
       return this.openLeagues.includes(index);
     },
-    toggleFavorite(teamId) {
+    async toggleFavorite(teamId) {
       const index = this.favoriteTeams.indexOf(teamId);
-      if (index > -1) {
-        this.favoriteTeams.splice(index, 1);
-      } else {
+      if (index === -1) {
         this.favoriteTeams.push(teamId);
+        await this.updateFavoriteStatus(teamId, 'add');
+      } else {
+        this.favoriteTeams.splice(index, 1);
+        await this.updateFavoriteStatus(teamId, 'remove');
+      }
+    },
+    async updateFavoriteStatus(teamId, action) {
+      try {
+        if (action === 'add') {
+          await addFavoriteTeam(teamId);
+        } else {
+          await removeFavoriteTeam(teamId);
+        }
+      } catch (error) {
+        console.error('Failed to update favorite status:', error);
       }
     },
     isFavorite(teamId) {
