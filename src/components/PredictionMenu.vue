@@ -5,7 +5,10 @@
         <v-card class="mx-auto mt-5" outlined>
           <v-card-title class="headline">Today's Match Prediction</v-card-title>
           <v-card-text>
-            <div v-if="prediction">
+            <div v-if="loading" class="text-center">
+              <v-progress-circular indeterminate color="primary"></v-progress-circular>
+            </div>
+            <div v-else-if="prediction">
               <h3>Fixture ID: {{ prediction.fixtureId }}</h3>
               <p><strong>Predicted Winner:</strong> {{ prediction.winner }}</p>
               <v-progress-linear
@@ -76,6 +79,7 @@ export default {
   data() {
     return {
       prediction: null,
+      loading: true,
       chartOptions: {
         chart: {
           width: '100%',
@@ -102,9 +106,11 @@ export default {
   },
   methods: {
     async fetchData() {
+      this.loading = true;
       const data = await fetchPredictionForToday();
       this.prediction = data;
       this.updateChart();
+      this.loading = false;
     },
     updateChart() {
       if (this.prediction) {

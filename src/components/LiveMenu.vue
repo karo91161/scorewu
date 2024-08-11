@@ -5,7 +5,7 @@
         <v-card class="mx-auto mt-5 modern-card" outlined>
           <v-card-title class="headline">
             <v-row align="center" justify="center">
-              <v-col class="text-center">Live Matches</v-col>
+              <v-col class="text-center">Live Matches</v-Col>
             </v-row>
           </v-card-title>
           <v-card-text>
@@ -16,7 +16,7 @@
               @input="fetchData"
               class="mt-4"
             ></v-pagination>
-            <v-list dense>
+            <v-list dense v-if="!loading">
               <v-list-item-group>
                 <v-list-item
                   v-for="fixture in fixtures"
@@ -75,6 +75,12 @@
               @input="fetchData"
               class="mt-4"
             ></v-pagination>
+            <div v-else-if="loading" class="text-center mt-4">
+              <v-progress-circular indeterminate color="primary"></v-progress-circular>
+            </div>
+            <div v-else class="text-center mt-4">
+              No matches found.
+            </div>
           </v-card-text>
         </v-card>
       </v-col>
@@ -92,6 +98,7 @@ export default {
       page: 1,
       limit: 10,
       totalCount: 0,
+      loading: true,
     };
   },
   computed: {
@@ -104,9 +111,11 @@ export default {
   },
   methods: {
     async fetchData() {
+      this.loading = true;
       const data = await fetchFixtures(this.page, this.limit);
       this.fixtures = data.response;
       this.totalCount = data.totalCount;
+      this.loading = false;
     }
   }
 };
