@@ -11,7 +11,7 @@
               :length="totalPages"
               @input="fetchData"
             ></v-pagination>
-            <v-list dense>
+            <v-list dense v-if="!loading">
               <v-list-item-group>
                 <v-list-item
                   v-for="fixture in fixtures"
@@ -52,6 +52,9 @@
                 </v-list-item>
               </v-list-item-group>
             </v-list>
+            <div v-else class="text-center mt-4">
+              <v-progress-circular indeterminate color="primary"></v-progress-circular>
+            </div>
             <v-pagination
               v-if="totalPages > 1"
               v-model="page"
@@ -74,7 +77,8 @@ export default {
       fixtures: [],
       page: 1,
       limit: 50,
-      totalCount: 0
+      totalCount: 0,
+      loading: true,
     };
   },
   computed: {
@@ -87,9 +91,11 @@ export default {
   },
   methods: {
     async fetchData() {
+      this.loading = true;
       const data = await fetchTodayFixtures(this.page, this.limit);
       this.fixtures = data.response;
       this.totalCount = data.totalCount;
+      this.loading = false;
     }
   }
 };

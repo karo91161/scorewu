@@ -1,5 +1,3 @@
-// services/leagueService.js
-
 import axios from 'axios';
 import { getUser } from '../utils/userStorage';
 
@@ -43,7 +41,6 @@ export async function fetchTeams(league, season) {
 }
 
 export async function fetchFavoriteTeams() {
-  console.log('USER', USER)
   try {
     const response = await axios.get(`${API_URL}/favorites`, {
       params: {
@@ -85,3 +82,27 @@ export async function removeFavoriteTeam(teamId) {
   }
 }
 
+export async function fetchTeamById(teamId) {
+  try {
+    const response = await axios.get(`${API_URL}/team`, {
+      params: { id: teamId }
+    });
+    return response.data.response;
+  } catch (error) {
+    console.error(`Error fetching team with ID ${teamId}:`, error);
+    throw error;
+  }
+}
+
+export async function fetchTeamPerformance(teamId, season) {
+  try {
+    const response = await axios.get(`/team-performance`, {
+      params: { teamId, season },
+    });
+    console.log('response.data.performance', response.data.performance)
+    return response.data.performance;
+  } catch (error) {
+    console.error(`Error fetching team performance:`, error);
+    throw error;
+  }
+}

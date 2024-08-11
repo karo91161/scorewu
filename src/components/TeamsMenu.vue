@@ -1,21 +1,26 @@
 <template>
   <div class="teams-container">
     <h1>Teams in Top 5 Leagues</h1>
-    <div v-for="(league, index) in leagues" :key="league.id" class="league-section">
-      <h2 @click="toggleLeague(index)">
-        {{ league.name }} - {{ league.season }}
-        <span class="toggle-icon">{{ isOpen(index) ? '-' : '+' }}</span>
-      </h2>
-      <div v-show="isOpen(index)" class="teams-grid">
-        <div v-for="team in league.teams" :key="team.team.id" class="team-card">
-          <img :src="team.team.logo" :alt="team.team.name" class="team-logo"/>
-          <div class="team-info">
-            <h3>{{ team.team.name }}</h3>
-            <p>{{ team.venue.name }}, {{ team.venue.city }}</p>
+    <div v-if="loading" class="text-center">
+      <v-progress-circular indeterminate color="primary"></v-progress-circular>
+    </div>
+    <div v-else>
+      <div v-for="(league, index) in leagues" :key="league.id" class="league-section">
+        <h2 @click="toggleLeague(index)">
+          {{ league.name }} - {{ league.season }}
+          <span class="toggle-icon">{{ isOpen(index) ? '-' : '+' }}</span>
+        </h2>
+        <div v-show="isOpen(index)" class="teams-grid">
+          <div v-for="team in league.teams" :key="team.team.id" class="team-card">
+            <img :src="team.team.logo" :alt="team.team.name" class="team-logo"/>
+            <div class="team-info">
+              <h3>{{ team.team.name }}</h3>
+              <p>{{ team.venue.name }}, {{ team.venue.city }}</p>
+            </div>
+            <span class="favorite-icon" @click="toggleFavorite(team.team.id)">
+              <i :class="isFavorite(team.team.id) ? 'mdi mdi-star' : 'mdi mdi-star-outline'"></i>
+            </span>
           </div>
-          <span class="favorite-icon" @click="toggleFavorite(team.team.id)">
-            <i :class="isFavorite(team.team.id) ? 'mdi mdi-star' : 'mdi mdi-star-outline'"></i>
-          </span>
         </div>
       </div>
     </div>
@@ -36,7 +41,8 @@ export default {
         { id: 61, name: 'Ligue 1', season: 2024, teams: [] }
       ],
       openLeagues: [],
-      favoriteTeams: []
+      favoriteTeams: [],
+      loading: true,
     };
   },
   mounted() {
@@ -45,17 +51,19 @@ export default {
   },
   methods: {
     async fetchTeams() {
-      for (let league of this.leagues) {
-        try {
+      try {
+        for (let league of this.leagues) {
           const response = await fetchTeams(league.id, league.season);
           if (response && response.response) {
             league.teams = response.response;
           } else {
             console.error(`Invalid response format for league ${league.name}`);
           }
-        } catch (error) {
-          console.error(`Error fetching teams for league ${league.name}:`, error);
         }
+      } catch (error) {
+        console.error(`Error fetching teams for league:`, error);
+      } finally {
+        this.loading = false;
       }
     },
     async loadFavorites() {

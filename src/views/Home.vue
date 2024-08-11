@@ -1,11 +1,12 @@
 <template>
   <v-container fluid>
-    <v-layout row>
-      <v-flex xs4>
-        <Sidebar></Sidebar>
-      </v-flex>
-      <v-flex xs8>
-        <h1>{{ $t('main.main_page') }}</h1>
+    <v-layout row justify-center>
+      <v-flex xs12 md8>
+        <Sidebar />
+        <div class="main-content">
+          <h1>{{ $t('live.live_matches') }}</h1>
+          <Home />
+        </div>
       </v-flex>
     </v-layout>
   </v-container>
@@ -13,10 +14,19 @@
 
 <script>
 import Sidebar from '@/components/Sidebar.vue';
+import Home from '../components/HomeMenu.vue';
 
 export default {
   components: {
-    Sidebar
+    Sidebar,
+    Home
   }
 }
 </script>
+
+<style scoped>
+.main-content {
+  padding: 20px;
+  text-align: center;
+}
+</style>
