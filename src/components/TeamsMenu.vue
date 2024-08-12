@@ -1,6 +1,6 @@
 <template>
   <div class="teams-container">
-    <h1>Teams in Top 5 Leagues</h1>
+    <h1>{{ $t('teams.title') }}</h1>
     <div v-if="loading" class="text-center">
       <v-progress-circular indeterminate color="primary"></v-progress-circular>
     </div>

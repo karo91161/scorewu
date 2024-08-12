@@ -2,7 +2,7 @@
   <v-app>
     <v-app-bar app class="app-bar" dark>
       <div class="ml-auto">
-        <LanguageSelector />
+        <LanguageSelector @languageChanged="updateSidebar" />
       </div>
     </v-app-bar>
 
@@ -16,15 +16,18 @@
 import LanguageSelector from '@/components/LanguageSelector.vue';
 
 export default {
-  name: 'App',
-
   components: {
-    LanguageSelector,
+    LanguageSelector
   },
-};
+  methods: {
+    updateSidebar() {
+      this.$refs.sidebar.updateMenuItems();
+    }
+  }
+}
 </script>
 
-<style lang="scss">
+<style>
 .app-bar {
   background-color: var(--app-color) !important;
 }

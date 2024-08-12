@@ -2,7 +2,6 @@ import axios from 'axios';
 import { getUser } from '../utils/userStorage';
 
 const API_URL = 'http://localhost:3000';
-const USER = getUser();
 
 export async function fetchFixtures(page = 1, limit = 50) {
   try {
@@ -41,6 +40,7 @@ export async function fetchTeams(league, season) {
 }
 
 export async function fetchFavoriteTeams() {
+  const USER = await getUser();
   try {
     const response = await axios.get(`${API_URL}/favorites`, {
       params: {
@@ -55,6 +55,7 @@ export async function fetchFavoriteTeams() {
 }
 
 export async function addFavoriteTeam(teamId) {
+  const USER = await getUser();
   try {
     const response = await axios.post(`${API_URL}/favorites`, {
       teamId,
@@ -68,6 +69,7 @@ export async function addFavoriteTeam(teamId) {
 }
 
 export async function removeFavoriteTeam(teamId) {
+  const USER = await getUser();
   try {
     const response = await axios.delete(`${API_URL}/favorites`, {
       data: {
@@ -99,10 +101,19 @@ export async function fetchTeamPerformance(teamId, season) {
     const response = await axios.get(`/team-performance`, {
       params: { teamId, season },
     });
-    console.log('response.data.performance', response.data.performance)
     return response.data.performance;
   } catch (error) {
     console.error(`Error fetching team performance:`, error);
+    throw error;
+  }
+}
+
+export async function fetchFixtureById(fixtureId) {
+  try {
+    const response = await axios.get(`${API_URL}/fixtures/${fixtureId}`);
+    return response.data;
+  } catch (error) {
+    console.error(`Error fetching fixture with ID ${fixtureId}:`, error);
     throw error;
   }
 }

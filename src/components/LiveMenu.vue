@@ -5,7 +5,7 @@
         <v-card class="mx-auto mt-5 modern-card" outlined>
           <v-card-title class="headline">
             <v-row align="center" justify="center">
-              <v-col class="text-center">Live Matches</v-Col>
+              <v-col class="text-center">{{ $t('live.live_matches') }}</v-Col>
             </v-row>
           </v-card-title>
           <v-card-text>
@@ -96,7 +96,7 @@ export default {
     return {
       fixtures: [],
       page: 1,
-      limit: 10,
+      limit: 2,
       totalCount: 0,
       loading: true,
     };
