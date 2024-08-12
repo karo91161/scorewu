@@ -10,6 +10,14 @@ export default {
   methods: {
     changeLanguage(lang) {
       this.$i18n.locale = lang;
+      localStorage.setItem('language', lang);
+      this.$emit('languageChanged');
+    }
+  },
+  created() {
+    const storedLang = localStorage.getItem('language');
+    if (storedLang) {
+      this.$i18n.locale = storedLang;
     }
   }
 };

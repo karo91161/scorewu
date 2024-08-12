@@ -4,7 +4,6 @@
       <v-flex xs12 md8>
         <Sidebar />
         <div class="main-content">
-          <h1>{{ $t('live.today_matches') }}</h1>
           <Today />
         </div>
       </v-flex>

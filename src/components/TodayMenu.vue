@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-col cols="12" md="10" lg="8">
         <v-card class="mx-auto mt-5" outlined>
-          <v-card-title class="headline">Today's Matches</v-card-title>
+          <v-card-title class="headline">{{ $t('live.today_matches') }}</v-card-title>
           <v-card-text>
             <v-pagination
               v-if="totalPages > 1"
@@ -76,7 +76,7 @@ export default {
     return {
       fixtures: [],
       page: 1,
-      limit: 50,
+      limit: 5,
       totalCount: 0,
       loading: true,
     };

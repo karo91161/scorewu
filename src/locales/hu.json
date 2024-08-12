@@ -25,5 +25,35 @@
     "password": "Jelszó",
     "button": "Bejelentkezés",
     "register": "Regisztráció"
+  },
+  "home": {
+    "title": "Kedvenc Csapataid",
+    "last-season": "Előző Szezon Teljesítménye: ",
+    "match-results": "Mérkőzés Eredmények",
+    "no-team-performance-data": "Nincs elérhető csapatteljesítmény adat.",
+    "next-prediction": "Előrejelzések a következő szezonra",
+    "expected-win-probability": "Várható Győzelmi Valószínűség",
+    "expected-draw-probability": "Várható Döntetlen Valószínűség",
+    "expected-loss-probability": "Várható Vereségi Valószínűség",
+    "expected-goals": "Várható Gólok",
+    "expected-goals-against": "Várható Kapott Gólok",
+    "home-win-probability": "Hazai Győzelem Valószínűsége",
+    "away-win-probability": "Idegenbeli Győzelem Valószínűsége",
+    "expected-goal-difference": "Várható Gólkülönbség"
+  },
+  "teams": {
+    "title": "A Top 5 bajnokság csapatai"
+  },
+  "prediction": {
+    "title": "Mai Mérkőzés Előrejelzése",
+    "fixture": "Mérkőzés: ",
+    "predicted_winner": "Várható Győztes",
+    "confidence": "Bizonyosság",
+    "under_over": "Alatt/Felett",
+    "home_goals": "Hazai Gólok",
+    "away_goals": "Vendég Gólok",
+    "advice": "Tanács",
+    "no_prediction": "Nincs elérhető előrejelzés a mai mérkőzésre.",
+    "goals": "Gólok"
   }
 }
