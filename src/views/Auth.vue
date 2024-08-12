@@ -1,5 +1,5 @@
 <template>
-  <v-container>
+  <v-container class="container">
     <v-layout align-center justify-center>
       <v-flex xs12 sm8 md4>
         <v-card>
@@ -138,6 +138,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.container {
+  margin-top: 100px;
+}
 .login-button {
   background-color: var(--app-color) !important;
 }

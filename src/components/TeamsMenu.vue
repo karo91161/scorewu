@@ -136,7 +136,7 @@ h1 {
 .league-section h2 {
   font-size: 2em;
   margin-bottom: 20px;
-  color: var(--app-color);
+  color: #333;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
