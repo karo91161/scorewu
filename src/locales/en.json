@@ -1,0 +1,60 @@
+{
+  "main": {
+    "main_page": "Main Page"
+  },
+  "live": {
+    "today_matches": "Upcoming Today's matches",
+    "live_matches": "Live matches",
+    "home": "Home",
+    "away": "Away",
+    "date": "Date",
+    "fixtures": "Fixtures",
+    "venue": "Venue"
+  },
+  "menu": {
+    "home": "Home",
+    "live": "Live",
+    "teams": "Teams",
+    "today": "Today",
+    "prediction": "Today's Top Prediction",
+    "logout": "Logout"
+  },
+  "auth": {
+    "title": "Login",
+    "email": "Email",
+    "password": "Password",
+    "button": "Login",
+    "register": "Registration"
+  },
+  "home": {
+    "title": "Your Favorite Teams",
+    "last-season": "Last Season Performance for ",
+    "match-results": "Match Results",
+    "no-team-performance-data": "No team performance data available.",
+    "next-prediction": "Performance Predictions for next season",
+    "expected-win-probability": "Expected Win Probability",
+    "expected-draw-probability": "Expected Draw Probability",
+    "expected-loss-probability": "Expected Loss Probability",
+    "expected-goals": "Expected Goals",
+    "expected-goals-against": "Expected Goals Against",
+    "home-win-probability": "Home Win Probability",
+    "away-win-probability": "Away Win Probability",
+    "expected-goal-difference": "Expected Goal Difference"
+  },
+  "teams": {
+    "title": "Teams in Top 5 Leagues"
+  },
+  "prediction": {
+    "title": "Today's Match Prediction",
+    "fixture": "Fixture: ",
+    "predicted_winner": "Predicted Winner",
+    "confidence": "Confidence",
+    "under_over": "Under/Over",
+    "home_goals": "Home Goals",
+    "away_goals": "Away Goals",
+    "advice": "Advice",
+    "no_prediction": "No prediction available for today's match.",
+    "goals": "Goals"
+  }
+}
+  

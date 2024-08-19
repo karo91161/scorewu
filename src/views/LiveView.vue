@@ -4,7 +4,7 @@
       <v-flex xs12 md8>
         <Sidebar />
         <div class="main-content">
-          <Home />
+          <Live />
         </div>
       </v-flex>
     </v-layout>
@@ -12,15 +12,15 @@
 </template>
 
 <script>
+import Live from '../components/LiveMenu.vue'
 import Sidebar from '@/components/Sidebar.vue';
-import Home from '../components/HomeMenu.vue';
 
 export default {
   components: {
-    Sidebar,
-    Home
+    Live,
+    Sidebar
   }
-}
+};
 </script>
 
 <style scoped>

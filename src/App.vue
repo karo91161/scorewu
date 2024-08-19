@@ -1,55 +1,56 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
+    <v-app-bar app class="app-bar" dark>
+      <div class="ml-auto">
+        <LanguageSelector @languageChanged="updateSidebar" />
       </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
     </v-app-bar>
 
-    <v-main>
-      <router-view/>
+    <v-main class="fancy-background">
+      <router-view />
     </v-main>
   </v-app>
 </template>
 
 <script>
+import LanguageSelector from '@/components/LanguageSelector.vue';
 
 export default {
-  name: 'App',
-
-  data: () => ({
-    //
-  }),
-};
+  components: {
+    LanguageSelector
+  },
+  methods: {
+    updateSidebar() {
+      this.$refs.sidebar.updateMenuItems();
+    }
+  }
+}
 </script>
+
+<style>
+.app-bar {
+  background-color: var(--app-color) !important;
+}
+
+.fancy-background {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7), rgba(126, 175, 52, 0.8)),
+              url('https://www.transparenttextures.com/patterns/clean-gray-paper.png');
+  background-size: cover, cover;
+  background-blend-mode: overlay;
+  box-shadow: inset 0 0 150px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+}
+
+/* Extra styling to ensure the background feels premium and sophisticated */
+.fancy-background::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.6), transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
+</style>
