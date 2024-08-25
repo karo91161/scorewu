@@ -41,7 +41,6 @@ export default {
   min-height: 100vh;
 }
 
-/* Extra styling to ensure the background feels premium and sophisticated */
 .fancy-background::before {
   content: "";
   position: absolute;

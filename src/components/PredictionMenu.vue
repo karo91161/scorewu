@@ -72,7 +72,7 @@ export default {
   data() {
     return {
       prediction: null,
-      fixture: null,  // Új változó a fixture adatainak
+      fixture: null,
       loading: true,
       fixtureName: '',
       chartOptions: {

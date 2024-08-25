@@ -24,7 +24,14 @@
     "email": "Email",
     "password": "Jelszó",
     "button": "Bejelentkezés",
-    "register": "Regisztráció"
+    "register": "Regisztráció",
+    "login_success": "Sikeres bejelentkezés",
+    "login_error": "Hiba történt a bejelentkezés során.",
+    "logout_error": "Hiba történt a kijelentkezés során.",
+    "register_success": "Sikeresen regisztráció",
+    "register_error": "Hiba történt a regisztráció során.",
+    "invalid_email_format": "Érvénytelen email formátum",
+    "invalid_password_rule": "A jelszónak legalább 6 karakter hosszúnak kell lennie, és tartalmaznia kell legalább egy számot"
   },
   "home": {
     "title": "Kedvenc Csapataid",

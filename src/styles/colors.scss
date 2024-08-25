@@ -1,7 +1,6 @@
 $app-color: #7eaf34;
 $darker-app-color: darken($app-color, 20%);
 
-// Export the variable as a CSS variable
 :root {
   --app-color: #{$app-color};
   --darker-app-color: #{$darker-app-color};

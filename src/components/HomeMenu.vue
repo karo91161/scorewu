@@ -58,7 +58,6 @@
       </v-col>
     </v-row>
 
-    <!-- Prediction Card -->
     <v-row justify="center" class="mt-5">
       <v-col cols="12" md="10">
         <h2 v-if="selectedTeam" class="text-center font-weight-bold">
