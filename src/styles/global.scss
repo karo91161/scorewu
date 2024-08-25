@@ -1,6 +1,5 @@
 @import "@/styles/colors.scss";
 
-// Override Vuetify primary color using the CSS variable
 .v-application {
   --v-primary-base: var(--app-color);
 }

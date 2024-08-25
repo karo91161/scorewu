@@ -24,7 +24,14 @@
     "email": "Email",
     "password": "Password",
     "button": "Login",
-    "register": "Registration"
+    "register": "Registration",
+    "login_success": "Login successful",
+    "login_error": "An error occurred during login.",
+    "logout_error": "An error occurred during logout.",
+    "register_success": "Registered successfully",
+    "register_error": "An error occurred during registration.",
+    "invalid_email_format": "Invalid email format",
+    "invalid_password_rule": "Password must be at least 6 characters and contain at least one number"
   },
   "home": {
     "title": "Your Favorite Teams",

@@ -74,7 +74,6 @@ const router = new VueRouter({
   routes
 });
 
-// Módosított beforeEach logika
 router.beforeEach(async (to, from, next) => {
   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
   const isAuthenticated = !!localStorage.getItem('user');

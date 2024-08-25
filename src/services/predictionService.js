@@ -21,7 +21,6 @@ export async function calculatePredictions(teamPerformance) {
 
     const matches = teamPerformance.matches;
 
-    // Adatok normalizálása
     const maxGoalsFor = Math.max(...matches.map(m => m.goalsFor));
     const maxGoalsAgainst = Math.max(...matches.map(m => m.goalsAgainst));
 
@@ -33,19 +32,17 @@ export async function calculatePredictions(teamPerformance) {
 
     const labels = matches.map(match => {
       if (match.result === 'win') {
-        return 0; // Győzelem
+        return 0;
       } else if (match.result === 'draw') {
-        return 1; // Döntetlen
+        return 1;
       } else if (match.result === 'loss') {
-        return 2; // Vereség
+        return 2;
       }
     });
 
-    // TensorFlow adatok előkészítése
     const xs = tf.tensor2d(inputs);
     const ys = tf.tensor1d(labels).toFloat();
 
-    // TensorFlow modell létrehozása
     const model = tf.sequential();
     model.add(tf.layers.dense({ units: 32, inputShape: [3], activation: 'relu' }));
     model.add(tf.layers.dropout({ rate: 0.5 }));
@@ -59,17 +56,14 @@ export async function calculatePredictions(teamPerformance) {
       metrics: ['accuracy']
     });
 
-    // Modell betanítása keresztvalidációval
     await model.fit(xs, ys, {
       epochs: 200,
       batchSize: 16,
       validationSplit: 0.2,
     });
 
-    // Predikciók készítése a meglévő adatokra
     const predictions = model.predict(xs).arraySync();
 
-    // Statisztikai mutatók számítása a predikciók alapján
     const totalMatches = predictions.length;
     const wins = predictions.filter(pred => pred.indexOf(Math.max(...pred)) === 0).length;
     const draws = predictions.filter(pred => pred.indexOf(Math.max(...pred)) === 1).length;
@@ -84,7 +78,6 @@ export async function calculatePredictions(teamPerformance) {
     const avgGoalsFor = (totalGoalsFor / totalMatches).toFixed(2);
     const avgGoalsAgainst = (totalGoalsAgainst / totalMatches).toFixed(2);
 
-    // Új statisztikák számítása
     const homeMatches = matches.filter(match => match.home);
     const awayMatches = matches.filter(match => !match.home);
 

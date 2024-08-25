@@ -33,7 +33,6 @@
         </div>
       </v-flex>
 
-      <!-- Register Dialog -->
       <v-dialog v-model="showRegisterDialog" max-width="500px">
         <v-card>
           <v-card-title>{{ $t('auth.register') }}</v-card-title>
@@ -76,8 +75,8 @@ export default {
       email: '',
       password: '',
       error: null,
-      showPassword: false, // Új állapot a jelszó láthatóságának kezelésére
-      showRegisterPassword: false, // Új állapot a regisztrációs jelszó láthatóságának kezelésére
+      showPassword: false,
+      showRegisterPassword: false,
       showRegisterDialog: false,
       registerEmail: '',
       registerPassword: '',
