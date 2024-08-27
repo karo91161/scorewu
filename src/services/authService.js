@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { setUser, removeUser } from '../utils/userStorage';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://scorewu-server.onrender.com';
 
 export const login = async (email, password) => {
   try {

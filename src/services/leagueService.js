@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { getUser } from '../utils/userStorage';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://scorewu-server.onrender.com';
 
 export async function fetchFixtures(page = 1, limit = 50) {
   try {
