@@ -98,7 +98,7 @@ export async function fetchTeamById(teamId) {
 
 export async function fetchTeamPerformance(teamId, season) {
   try {
-    const response = await axios.get(`/team-performance`, {
+    const response = await axios.get(`${API_URL}/team-performance`, {
       params: { teamId, season },
     });
     return response.data.performance;
