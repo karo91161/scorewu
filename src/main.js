@@ -10,7 +10,7 @@ import './styles/global.scss';
 Vue.config.productionTip = false
 
 Vue.use(VueAxios, axios)
-axios.defaults.baseURL = 'http://localhost:3000'
+axios.defaults.baseURL = 'https://scorewu-server.onrender.com'
 
 new Vue({
   i18n,
