@@ -72,7 +72,7 @@ Dropout layers are used to reduce overfitting.
 ## 🚀 Getting Started
 
 ```bash
-git clone https://github.com/karo91161/scorewu-client
-cd scorewu-client
+git clone https://github.com/karo91161/scorewu
+cd scorewu
 npm install
 npm run serve
